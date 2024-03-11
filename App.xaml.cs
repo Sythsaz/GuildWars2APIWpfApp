@@ -1,47 +1,32 @@
-﻿using System.Threading.Tasks; // Add using directive for Task
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace GuildWars2APIWpfApp
 {
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            // Show splash screen
+            // Create and show the splash screen
             var splashScreen = new SplashScreenWindow();
             splashScreen.Show();
 
             // Perform initialization tasks asynchronously
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await InitializeApp();
-                }
-                catch (Exception ex)
-                {
-                    // Handle initialization errors
-                    MessageBox.Show($"An error occurred during initialization: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+            await InitializeApp();
 
-                // Close splash screen and show main window
-                splashScreen.Dispatcher.Invoke(() =>
-                {
-                    splashScreen.Close();
-                    var mainWindow = new MainWindow();
-                    mainWindow.Show();
-                });
-            });
+            // Close the splash screen and open the main window
+            splashScreen.Close();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
         }
 
         private async Task InitializeApp()
         {
-            // Perform initialization tasks here
+            // Perform initialization tasks here (e.g., loading resources, setting up services)
             await Task.Delay(2000); // Simulate initialization delay
-
         }
     }
 }
