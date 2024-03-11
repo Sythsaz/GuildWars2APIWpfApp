@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GuildWars2APIWpfApp": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\ashto\\Documents\\Automation\\windows\\GuildWars2APIWpfApp",
+      "sqlDebugging": true
+    }
+  }
+}

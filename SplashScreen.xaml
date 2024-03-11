@@ -1,0 +1,12 @@
+﻿<!-- SplashScreenWindow.xaml -->
+<Window x:Class="GuildWars2APIWpfApp.SplashScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        Title="SplashScreenWindow" Height="300" Width="400">
+    <Grid>
+        <!-- Add your splash screen content here -->
+        <Image Source="Images/Logo/Logo.png" Stretch="Uniform"/>
+        <TextBlock Text="Loading..." HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
