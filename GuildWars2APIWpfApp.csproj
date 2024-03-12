@@ -2,80 +2,129 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
+    <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
+    <StartupObject>GuildWars2APIWpfApp.App</StartupObject>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <ErrorReport>send</ErrorReport>
+    <IncludeSymbols>False</IncludeSymbols>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <WarningLevel>3</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
+    <None Remove="fonts\lato\Lato-Black.ttf" />
+    <None Remove="fonts\lato\Lato-Bold.ttf" />
+    <None Remove="fonts\lato\Lato-Hairline.ttf" />
+    <None Remove="fonts\lato\Lato-Heavy.ttf" />
+    <None Remove="fonts\lato\Lato-Italic.ttf" />
+    <None Remove="fonts\lato\Lato-Light.ttf" />
+    <None Remove="fonts\lato\Lato-Medium.ttf" />
+    <None Remove="fonts\lato\Lato-Regular.ttf" />
+    <None Remove="fonts\lato\Lato-Semibold.ttf" />
+    <None Remove="fonts\lato\Lato-Thin.ttf" />
+    <None Remove="images\logo\logo.png" />
+    <None Remove="logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Images\Logo\" />
+    <Resource Include="fonts\lato\Lato-Black.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Hairline.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Heavy.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Italic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Light.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Semibold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\lato\Lato-Thin.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="logo.png" />
+    <Resource Include="images\logo\logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Fonts\Lato\Lato-Black.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="fonts\lato\Lato-BlackItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-BlackItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-BoldItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-Bold.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-HairlineItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-BoldItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-HeavyItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-Hairline.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-LightItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-HairlineItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-MediumItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-Heavy.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-SemiboldItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-HeavyItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="fonts\lato\Lato-ThinItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Fonts\Lato\Lato-Italic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-Light.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-LightItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-Medium.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-MediumItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-Regular.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-Semibold.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-SemiboldItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-Thin.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Fonts\Lato\Lato-ThinItalic.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Images\Logo\Logo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

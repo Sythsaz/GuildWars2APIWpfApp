@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:GuildWars2APIWpfApp"
         WindowStyle="None"
         AllowsTransparency="True"
-        Icon="Images/Logo/Logo.png"
-        Loaded="WindowLoaded"
+        Icon="/images/logo/logo.png"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen">
     <Grid>

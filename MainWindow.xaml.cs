@@ -22,21 +22,6 @@ namespace GuildWars2APIWpfApp
 
         #endregion
 
-        #region On Loaded
-
-        /// <summary>
-        /// When the application first open
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void WindowLoaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        #endregion
-
         #region Update Data
         private void UpdateDataFromAPI()
         {
@@ -47,7 +32,7 @@ namespace GuildWars2APIWpfApp
 
         #region Populate Combo Box's From Database
 
-        private void PorpulateComboBoxes()
+        private void PoppulateComboBoxes()
         {
 
         }
