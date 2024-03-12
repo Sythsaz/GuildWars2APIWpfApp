@@ -23,6 +23,9 @@ namespace GuildWars2APIWpfApp
         #endregion
 
         #region Update Data
+        /// <summary>
+        /// Update API info from website
+        /// </summary>
         private void UpdateDataFromAPI()
         {
 
