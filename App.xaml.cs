@@ -35,7 +35,7 @@ namespace GuildWars2APIWpfApp
             mainWindow.Show();
         }
 
-        private async Task InitializeApp()
+        private static async Task InitializeApp()
         {
             // Perform initialization tasks here (e.g., loading resources, setting up services)
             await Task.Delay(1000); // Simulate initialization delay
