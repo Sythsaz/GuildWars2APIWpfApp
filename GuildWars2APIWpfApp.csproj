@@ -45,7 +45,6 @@
     <None Remove="fonts\lato\Lato-Semibold.ttf" />
     <None Remove="fonts\lato\Lato-Thin.ttf" />
     <None Remove="images\logo\logo.png" />
-    <None Remove="logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,7 +82,6 @@
     <Resource Include="fonts\lato\Lato-Thin.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="logo.png" />
     <Resource Include="images\logo\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
