@@ -15,6 +15,7 @@
     <IncludeSymbols>False</IncludeSymbols>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest</AnalysisLevel>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <UserSecretsId>0864c2b6-500c-40ca-9d09-1584d6d6bdc8</UserSecretsId>
   </PropertyGroup>
 
