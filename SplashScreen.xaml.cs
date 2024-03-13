@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace GuildWars2APIWpfApp
 {
+
     /// <summary>
     /// Interaction logic for SplashScreen.xaml
     /// </summary>
