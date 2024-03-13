@@ -9,12 +9,14 @@ using static System.Net.WebRequestMethods;
 namespace GuildWars2APIWpfApp
 {
     /// <summary>
-    /// Interaction logic for MainWindown.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         #region Constructor
-
+        /// <summary>
+        /// Main Window Initializer
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace GuildWars2APIWpfApp
 
         #region Populate Combo Box's From Database
 
-        private void PoppulateComboBoxes()
+        private void PopulateComboBoxes()
         {
 
         }
