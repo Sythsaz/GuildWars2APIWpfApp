@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GuildWars2APIWpfApp
 {
+    /// <summary>
+    /// Scrape Guild Wars 2 API html for api info
+    /// </summary>
     public class GuildWars2ApiScrape
     {
         public static async Task<(Dictionary<string, (List<char> Keys, string Name)>? ApiData, string? ErrorMessage)> ScrapeGuildWars2ApiPage(string url)
@@ -98,8 +101,7 @@ namespace GuildWars2APIWpfApp
 
         private static string GetEndpointName(string path)
         {
-            // Convert the path to the desired format
-            // For example, convert "stories/seasons" to "Stories:Seasons"
+            // Convert the path from "stories/seasons" to "Stories:Seasons"
             string[] parts = path.Split('/');
             for (int i = 0; i < parts.Length; i++)
             {

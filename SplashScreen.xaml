@@ -5,7 +5,6 @@
         WindowStyle="None"
         Title="SplashScreenWindow" Height="300" Width="400">
     <Grid>
-        <!-- Add your splash screen content here -->
         <Image Source="/images/logo/logo.png" Stretch="Uniform"/>
         <TextBlock Text="Loading..." FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
     </Grid>
