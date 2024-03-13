@@ -4,7 +4,6 @@ using System.Windows;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-
 namespace GuildWars2APIWpfApp
 {
     public partial class App : Application
@@ -30,7 +29,7 @@ namespace GuildWars2APIWpfApp
             // Perform initialization tasks asynchronously
             await InitializeApp();
 
-            // Open the main window
+            // Open the main window after initialization is complete
             var mainWindow = new MainWindow();
             mainWindow.Show();
         }
@@ -38,7 +37,7 @@ namespace GuildWars2APIWpfApp
         private static async Task InitializeApp()
         {
             // Perform initialization tasks here (e.g., loading resources, setting up services)
-            await Task.Delay(1000); // Simulate initialization delay
+            await Task.Delay(2000); // Simulate initialization delay
         }
 
         private void TimerElapsed(object? sender, ElapsedEventArgs e)
@@ -49,6 +48,5 @@ namespace GuildWars2APIWpfApp
                 splashScreen.Close();
             });
         }
-
     }
 }
