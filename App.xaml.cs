@@ -33,8 +33,8 @@ namespace GuildWars2APIWpfApp
 
                 if (apiKeyValidated)
                 {
-                    // Open the main window
-                    MainWindow mainWindow = new();
+                    // Create an instance of the MainWindow with the apiKey parameter
+                    MainWindow mainWindow = new(apiKey);
                     mainWindow.Closed += MainWindow_Closed; // Handle the Closed event
 
                     // Show the main window asynchronously
@@ -54,7 +54,6 @@ namespace GuildWars2APIWpfApp
                 }
             }
         }
-
 
         private void MainWindow_Closed(object? sender, EventArgs e)
         {

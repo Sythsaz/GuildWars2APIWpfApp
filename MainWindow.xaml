@@ -9,7 +9,39 @@
         Icon="/images/logo/logo.png"
         mc:Ignorable="d"
         Title="GW2 API Interaction" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen" >
+
     <Grid>
-        <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="40"/>
+        <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="10"/>
+                <StackPanel x:Name="CompactLayout" Orientation="Horizontal">
+                    <TextBlock Text="Wizard's Vault Item:" FontFamily="LatoRegular" FontSize="10" VerticalAlignment="Center"/>
+                    <TextBox x:Name="itemNumber" AcceptsReturn="True" AcceptsTab="False" FontFamily="LatoRegular" FontSize="10" FontStretch="Normal" Height="15" Width="200"/>
+                </StackPanel>
+                <StackPanel x:Name="ExpandedLayout" Orientation="Horizontal" Visibility="Collapsed">
+                    <!-- Elements for expanded layout -->
+                </StackPanel>
+            </StackPanel>
+        </Viewbox>
     </Grid>
+
+    <Window.Resources>
+        <local:WindowSizeToVisibilityConverter x:Key="WindowSizeToVisibilityConverter"/>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CompactLayout" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource WindowSizeToVisibilityConverter}}"/>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExpandedLayout" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth, Converter={StaticResource WindowSizeToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                    </ObjectAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
 </Window>

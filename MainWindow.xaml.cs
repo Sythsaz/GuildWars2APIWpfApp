@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Net.WebRequestMethods;
+using System.Windows.Data;
 
 namespace GuildWars2APIWpfApp
 {
@@ -13,6 +14,7 @@ namespace GuildWars2APIWpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+
         #region Constructor
         /// <summary>
         /// Main Window Initializer
@@ -24,36 +26,54 @@ namespace GuildWars2APIWpfApp
 
         #endregion
 
-        #region Update Data
-        /// <summary>
-        /// Update API info from website
-        /// </summary>
-        private void UpdateDataFromAPI()
-        {
+        private readonly string? apiKey;
 
+        public MainWindow(string apiKey)
+        {
+            InitializeComponent();
+            this.apiKey = apiKey;
         }
 
-        #endregion
-
-        #region Populate Combo Box's From Database
-
-        private void PopulateComboBoxes()
-        {
-
-        }
-
-        #endregion
 
         #region Perform Request to API
 
-        private void ApiRequest()
+        private void ApiRequest(int type, int? item)
         {
 
         }
 
         #endregion
 
-
     }
 
+    /// <summary>
+    /// Converter to convert window size to visibility state
+    /// </summary>
+    public class WindowSizeToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            double windowWidth = (double)value;
+            bool inverse = false;
+
+            if (parameter != null && parameter.ToString() == "Inverse")
+            {
+                inverse = true;
+            }
+
+            if (windowWidth < 600)
+            {
+                return inverse ? Visibility.Visible : Visibility.Collapsed;
+            }
+            else
+            {
+                return inverse ? Visibility.Collapsed : Visibility.Visible;
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
