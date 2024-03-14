@@ -46,6 +46,7 @@ namespace GuildWars2APIWpfApp
 
     }
 
+    #region Window Visibility Converter
     /// <summary>
     /// Converter to convert window size to visibility state
     /// </summary>
@@ -76,4 +77,6 @@ namespace GuildWars2APIWpfApp
             throw new NotImplementedException();
         }
     }
+
+    #endregion
 }

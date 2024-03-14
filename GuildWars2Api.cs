@@ -12,6 +12,15 @@ namespace GuildWars2APIWpfApp
     /// </summary>
     public class GuildWars2ApiScrape
     {
+        // Declare a static HttpClient field
+        private static readonly HttpClient httpClient = new();
+        private const string pattern = @"/v2/([\w/-]+)\s+\[([\w,]+)]";
+        public static class RegexPatterns
+        {
+            public static string Pattern { get; } = pattern;
+        }
+
+
         public static async Task<(Dictionary<string, (List<char> Keys, string Name)>? ApiData, string? ErrorMessage)> ScrapeGuildWars2ApiPage(string url)
         {
             Dictionary<string, (List<char> Keys, string Name)>? apiData = null;
@@ -20,27 +29,24 @@ namespace GuildWars2APIWpfApp
             try
             {
                 Debug.WriteLine($"The URL is: {url}");
-
-                using var httpClient = new HttpClient();
                 HttpResponseMessage response = await httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode(); // Throw exception if not successful
 
                 string htmlContent = await response.Content.ReadAsStringAsync();
 
-                // Extract API usage information using regex
-                string pattern = @"/v2/([\w/-]+)\s+\[([\w,]+)]";
-                MatchCollection matches = Regex.Matches(htmlContent, pattern);
+                MatchCollection matches = Regex.Matches(htmlContent, RegexPatterns.Pattern);
 
                 // Initialize the dictionary to store extracted data
-                apiData = [];
+                apiData = new Dictionary<string, (List<char> Keys, string Name)>(matches.Count); // Provide an initial capacity
 
+#pragma warning disable U2U1007 // Do not call redundant functions
                 foreach (Match match in matches.Cast<Match>())
                 {
                     string path = match.Groups[1].Value.Trim();
                     string legends = match.Groups[2].Value.Trim();
 
                     // Extract the keys from the legend
-                    List<char> legendKeys = [];
+                    List<char> legendKeys = new(legends.Length); // Initialize with smaller initial capacity
                     foreach (char legend in legends)
                     {
                         if (legend != ',')
@@ -49,21 +55,21 @@ namespace GuildWars2APIWpfApp
                         }
                     }
 
-                    string name = GetEndpointName(path);
-
                     // Prepend the base URL to the path
                     string fullPath = "https://api.guildwars2.com/" + path;
 
                     // Check if the path already exists in the dictionary
                     if (!apiData.TryGetValue(fullPath, out (List<char> Keys, string Name) value))
                     {
-                        value = (new List<char>(), name);
-                        // If the path doesn't exist, create a new list to store keys and names
+                        string name = GetEndpointName(path);
+                        value = (new List<char>(legends.Length), name); // Initialize list with initial capacity
+                                                                        // If the path doesn't exist, create a new list to store keys and names
                         apiData[fullPath] = value;
                     }
 
                     value.Keys.AddRange(legendKeys);
                 }
+#pragma warning restore U2U1007 // Do not call redundant functions
             }
             catch (Exception ex)
             {
@@ -98,14 +104,14 @@ namespace GuildWars2APIWpfApp
             return (apiData, errorMessage);
         }
 
-
         private static string GetEndpointName(string path)
         {
             // Convert the path from "stories/seasons" to "Stories:Seasons"
             string[] parts = path.Split('/');
             for (int i = 0; i < parts.Length; i++)
             {
-                parts[i] = char.ToUpper(parts[i][0]) + parts[i][1..];
+                ref string part = ref parts[i];
+                part = char.ToUpper(part[0]) + part[1..];
             }
             return string.Join(":", parts);
         }
