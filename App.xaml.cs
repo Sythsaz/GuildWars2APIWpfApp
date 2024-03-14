@@ -77,7 +77,7 @@ namespace GuildWars2APIWpfApp
         {
             try
             {
-                string url = "https://api.guildwars2.com/v2/tokeninfo";
+                const string url = "https://api.guildwars2.com/v2/tokeninfo";
                 HttpClient httpClient = new();
                 bool apiKeyValidated = false;
                 // Add API key to request headers
