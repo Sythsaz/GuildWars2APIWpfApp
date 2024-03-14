@@ -8,7 +8,7 @@
         AllowsTransparency="True"
         Icon="/images/logo/logo.png"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen" >
+        Title="GW2 API Interaction" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen" >
     <Grid>
         <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="40"/>
     </Grid>

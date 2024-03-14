@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -6,49 +8,106 @@ namespace GuildWars2APIWpfApp
 {
     public partial class App : Application
     {
-        #region Startup
-        /// <summary>
-        /// Show spash screen, load req deps, close spash screen, open main window
-        /// </summary>
-        /// <param name="e"></param>
-        protected override async void OnStartup(StartupEventArgs e)
+        private LoadingWindow? loadingScreen;
+        private bool isMainWindowOpen = false;
+
+        protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            // Create and show the splash screen
-            var loadingScreen = new LoadingWindow();
+            // Create and show the loading screen
+            loadingScreen = new LoadingWindow();
+            loadingScreen.OkButtonClicked += LoadingScreen_OkButtonClicked; // Subscribe to the event
             loadingScreen.Show();
-
-            // Perform initialization tasks asynchronously
-            await InitializeApp();
-
-            // Open the main window
-            var mainWindow = new MainWindow();
-
-            // Handle the Loaded event of the main window
-            mainWindow.Loaded += (sender, args) =>
-            {
-                // Close the splash screen when the main window is loaded
-                loadingScreen.Close();
-            };
-
-            // Show the main window
-            mainWindow.Show();
         }
 
-        #endregion
-
-        #region Load Req Deps
-        /// <summary>
-        /// Load required info to work with the api
-        /// </summary>
-        /// <returns></returns>
-        private static async Task InitializeApp()
+        private async void LoadingScreen_OkButtonClicked(object? sender, EventArgs e)
         {
-            // Perform initialization tasks here (e.g., loading resources, setting up services)
-            await Task.Delay(5000); // Simulate initialization delay
+            if (loadingScreen != null)
+            {
+                // Obtain the API key from the loading screen
+                string apiKey = loadingScreen.ApiKey;
+
+                // Perform initialization tasks asynchronously
+                bool apiKeyValidated = await InitializeApp(apiKey);
+
+                if (apiKeyValidated)
+                {
+                    // Open the main window
+                    MainWindow mainWindow = new();
+                    mainWindow.Closed += MainWindow_Closed; // Handle the Closed event
+
+                    // Show the main window asynchronously
+                    mainWindow.Show();
+
+                    // Keep the loading screen open until the main window is fully loaded
+                    mainWindow.ContentRendered += (s, _) =>
+                    {
+                        // Close the loading screen when the main window is fully loaded
+                        loadingScreen?.Close();
+                    };
+                }
+                else
+                {
+                    // Exit the application if the API key is not validated
+                    Shutdown();
+                }
+            }
         }
 
-        #endregion
+
+        private void MainWindow_Closed(object? sender, EventArgs e)
+        {
+            // Set the flag to indicate that the main window is closed
+            isMainWindowOpen = false;
+        }
+
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+
+            // Shutdown the application
+            Application.Current.Shutdown();
+        }
+
+
+
+        private static async Task<bool> InitializeApp(string apiKey)
+        {
+            try
+            {
+                string url = "https://api.guildwars2.com/v2/tokeninfo";
+                HttpClient httpClient = new();
+                bool apiKeyValidated = false;
+                // Add API key to request headers
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+
+                // Send GET request to the /v2/tokeninfo endpoint
+                HttpResponseMessage response = await httpClient.GetAsync(url);
+
+                // Check if the response is successful
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine("API Verify Success");
+                    // If the API key is valid, return true
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine("API Verify Failure");
+                    // If the API key is invalid, return false
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions
+                MessageBox.Show($"An error occurred during initialization: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+        }
     }
 }

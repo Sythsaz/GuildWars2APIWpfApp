@@ -1,8 +1,7 @@
 ﻿<Application x:Class="GuildWars2APIWpfApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GuildWars2APIWpfApp"
-             StartupUri="LoadingWindow.xaml">
+             xmlns:local="clr-namespace:GuildWars2APIWpfApp">
     <Application.Resources>
         <ResourceDictionary>
             <!-- Merge all your resource dictionaries here -->
