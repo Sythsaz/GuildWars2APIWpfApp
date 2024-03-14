@@ -42,8 +42,8 @@ jobs:
     # Install NuGet packages and build project
     - name: Restore NuGet packages and build
       run: |
-        nuget restore YourSolution.sln
-        msbuild YourSolution.sln /t:Rebuild /p:Configuration=Release
+        nuget restore GuildWars2APIWpfApp.sln
+        msbuild GuildWars2APIWpfApp.sln /t:Rebuild /p:Configuration=Debug
 
     # Perform CodeQL analysis
     - name: Perform CodeQL Analysis
