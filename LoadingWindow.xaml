@@ -1,5 +1,4 @@
-﻿<!-- SplashScreenWindow.xaml -->
-<Window x:Class="GuildWars2APIWpfApp.SplashScreenWindow"
+﻿<Window x:Class="GuildWars2APIWpfApp.LoadingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="None"

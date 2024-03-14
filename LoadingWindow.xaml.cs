@@ -19,9 +19,9 @@ namespace GuildWars2APIWpfApp
     /// <summary>
     /// Interaction logic for SplashScreen.xaml
     /// </summary>
-    public partial class SplashScreenWindow : Window
+    public partial class LoadingWindow : Window
     {
-        public SplashScreenWindow()
+        public LoadingWindow()
         {
             InitializeComponent();
         }
