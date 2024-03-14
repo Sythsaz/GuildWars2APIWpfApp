@@ -20,6 +20,8 @@ namespace GuildWars2APIWpfApp
             public static string Pattern { get; } = pattern;
         }
 
+        // Define a public static property to access the dictionary
+        public static Dictionary<string, (List<char> Keys, string Name)>? ApiData { get; private set; }
 
         public static async Task<(Dictionary<string, (List<char> Keys, string Name)>? ApiData, string? ErrorMessage)> ScrapeGuildWars2ApiPage(string url)
         {
