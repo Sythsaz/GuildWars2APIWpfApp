@@ -3,7 +3,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="None"
-        Title="SplashScreenWindow" Height="300" Width="400">
+        Title="Loading Window" Height="300" Width="400">
     <Grid>
         <Image Source="/images/logo/logo.png" Stretch="Uniform"/>
         <TextBlock Text="Loading..." FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
