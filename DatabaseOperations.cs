@@ -11,7 +11,7 @@ namespace GuildWars2APIWpfApp
 
         public List<string> GetApiNames()
         {
-            List<string> apiNames = new List<string>(); // Initialize the list
+            List<string> apiNames = []; // Initialize the list
 
             try
             {

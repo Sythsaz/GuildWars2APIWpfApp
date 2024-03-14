@@ -32,7 +32,7 @@ namespace GuildWars2APIWpfApp
                 MatchCollection matches = Regex.Matches(htmlContent, pattern);
 
                 // Initialize the dictionary to store extracted data
-                apiData = new Dictionary<string, (List<char> Keys, string Name)>();
+                apiData = [];
 
                 foreach (Match match in matches.Cast<Match>())
                 {
@@ -40,7 +40,7 @@ namespace GuildWars2APIWpfApp
                     string legends = match.Groups[2].Value.Trim();
 
                     // Extract the keys from the legend
-                    List<char> legendKeys = new List<char>();
+                    List<char> legendKeys = [];
                     foreach (char legend in legends)
                     {
                         if (legend != ',')
