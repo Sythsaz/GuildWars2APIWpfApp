@@ -16,8 +16,8 @@ namespace GuildWars2APIWpfApp
             base.OnStartup(e);
 
             // Create and show the splash screen
-            var splashScreen = new SplashScreenWindow();
-            splashScreen.Show();
+            var loadingScreen = new LoadingWindow();
+            loadingScreen.Show();
 
             // Perform initialization tasks asynchronously
             await InitializeApp();
@@ -29,14 +29,14 @@ namespace GuildWars2APIWpfApp
             mainWindow.Loaded += (sender, args) =>
             {
                 // Close the splash screen when the main window is loaded
-                splashScreen.Close();
+                loadingScreen.Close();
             };
 
             // Show the main window
             mainWindow.Show();
         }
 
-        #region
+        #endregion
 
         #region Load Req Deps
         /// <summary>
