@@ -43,10 +43,10 @@ namespace GuildWars2APIWpfApp
         /// Load required info to work with the api
         /// </summary>
         /// <returns></returns>
-        private async Task InitializeApp()
+        private static async Task InitializeApp()
         {
             // Perform initialization tasks here (e.g., loading resources, setting up services)
-            await Task.Delay(10000); // Simulate initialization delay
+            await Task.Delay(5000); // Simulate initialization delay
         }
 
         #endregion
