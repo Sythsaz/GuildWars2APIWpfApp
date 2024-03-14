@@ -5,7 +5,7 @@
         Title="Loading Window" Height="300" Width="400">
     <Grid>
         <Image Name="logo" Source="/images/logo/logo.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1,20,0,0"/>
-        <TextBlock Text="Loading..." FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45"/>
+        <TextBlock Text="Enter your API key" FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45"/>
         <TextBox x:Name="apiKeyTextBox" FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Center" Width="315" FontSize="8"/>
         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Ok_Click" Name="ok" Width="30" Height="15" FontFamily="LatoRegular" FontSize="10" ClickMode="Release" Content="Ok" Margin="0,0,0,100"/>
     </Grid>
