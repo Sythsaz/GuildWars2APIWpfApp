@@ -6,6 +6,25 @@
         Title="Loading Window" Height="300" Width="400" Icon="images/logo/logo.png">
     <Grid av:IsLocked="True">
         <!-- Title Bar Background -->
+        <Border Background="#2C3E50" Height="20" VerticalAlignment="Top">
+            <Grid>
+                <!-- Title Bar Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,5,0">
+                    <!-- Minimize Button -->
+                    <Button x:Name="MinimizeButton" Style="{StaticResource WindowButtonStyle}" Click="MinimizeButton_Click" Margin="0,0,4,0">
+                        <Path Data="M 0,6 H 10" Stroke="White" StrokeThickness="2"/>
+                    </Button>
+                    <!-- Maximize/Restore Button -->
+                    <Button x:Name="MaximizeRestoreButton" Style="{StaticResource WindowButtonStyle}" Click="MaximizeButton_Click" Margin="4,0,4,0">
+                        <Path Data="M 0,0 H 10 M 0,6 H 10 M 0,12 H 10" Stroke="White" StrokeThickness="2"/>
+                    </Button>
+                    <!-- Close Button -->
+                    <Button x:Name="CloseButton" Style="{StaticResource WindowButtonStyle}" Click="CloseButton_Click" Margin="4,0,0,0">
+                        <Path Data="M 0,0 L 10,10 M 0,10 L 10,0" Stroke="White" StrokeThickness="2"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
                 <Image x:Name="logo" Source="/images/logo/logo.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" av:IsLocked="True"/>
