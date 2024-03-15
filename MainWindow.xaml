@@ -37,6 +37,7 @@
         </Border>
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
+                <StackPanel x:Name="CompactLayout">
                 <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="10"/>
                 <StackPanel x:Name="CompactLayout" Orientation="Horizontal">
                     <TextBlock Text="Wizard's Vault Item:" FontFamily="LatoRegular" FontSize="10" VerticalAlignment="Center"/>
