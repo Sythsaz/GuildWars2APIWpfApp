@@ -59,6 +59,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
     <PackageReference Include="runtime.any.System.Runtime" Version="4.3.1" />
     <PackageReference Include="runtime.any.System.Text.Encoding" Version="4.3.0" />
     <PackageReference Include="runtime.any.System.Text.Encoding.Extensions" Version="4.3.0" />
