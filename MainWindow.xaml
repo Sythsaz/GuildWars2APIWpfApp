@@ -19,7 +19,6 @@
                     <TextBox x:Name="itemNumber" AcceptsReturn="True" AcceptsTab="False" FontFamily="LatoRegular" FontSize="10" FontStretch="Normal" Height="15" Width="200"/>
                 </StackPanel>
                 <StackPanel x:Name="ExpandedLayout" Orientation="Horizontal" Visibility="Collapsed">
-                    <!-- Elements for expanded layout -->
                 </StackPanel>
             </StackPanel>
         </Viewbox>
