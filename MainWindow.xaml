@@ -12,7 +12,7 @@
         Title="GW2 API Interaction" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen">
 
     <Window.Resources>
-        <local:WindowSizeToVisibilityConverter x:Key="WindowSizeToVisibilityConverter"/>
+        <local:WindowSizeToVisibilityConverterMain x:Key="WindowSizeToVisibilityConverterMain"/>
     </Window.Resources>
 
     <Grid>
