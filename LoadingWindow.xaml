@@ -5,6 +5,7 @@
         WindowStyle="None"
         Title="Loading Window" Height="300" Width="400" Icon="images/logo/logo.png">
     <Grid av:IsLocked="True">
+        <!-- Title Bar Background -->
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
                 <Image x:Name="logo" Source="/images/logo/logo.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" av:IsLocked="True"/>
