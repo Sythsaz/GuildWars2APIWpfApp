@@ -68,7 +68,7 @@ namespace GuildWars2APIWpfApp
     /// <summary>
     /// Converter to convert window size to visibility state
     /// </summary>
-    public class WindowSizeToVisibilityConverter : IValueConverter
+    public class WindowSizeToVisibilityConverterMain : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
