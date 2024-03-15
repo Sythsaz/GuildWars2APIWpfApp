@@ -41,7 +41,6 @@ namespace GuildWars2APIWpfApp
                 // Initialize the dictionary to store extracted data
                 apiData = new Dictionary<string, (List<char> Keys, string Name)>(matches.Count); // Provide an initial capacity
 
-#pragma warning disable U2U1007 // Do not call redundant functions
                 foreach (Match match in matches.Cast<Match>())
                 {
                     string path = match.Groups[1].Value.Trim();
@@ -71,7 +70,6 @@ namespace GuildWars2APIWpfApp
 
                     value.Keys.AddRange(legendKeys);
                 }
-#pragma warning restore U2U1007 // Do not call redundant functions
             }
             catch (Exception ex)
             {

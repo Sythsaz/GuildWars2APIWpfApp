@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="LoadingWindow1" mc:Ignorable="av" x:Class="GuildWars2APIWpfApp.LoadingWindow"
         WindowStyle="None"
-        Title="Loading Window" Height="300" Width="400" Icon="/logo.png">
+        Title="Loading Window" Height="300" Width="400" Icon="images/logo/logo.png">
     <Grid av:IsLocked="True">
         <Image x:Name="logo" Source="/images/logo/logo.png" Stretch="UniformToFill" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1,20,0,0" av:IsLocked="True"/>
-        <TextBlock Text="Enter your API key above" FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,45" av:IsLocked="True"/>
+        <TextBlock Text="Enter your API key above" FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,121" av:IsLocked="True"/>
         <TextBox x:Name="apiKeyTextBox" FontFamily="LatoRegular" HorizontalAlignment="Center" VerticalAlignment="Center" Width="315" FontSize="8" av:IsLocked="True"/>
         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Ok_Click" x:Name="ok" Width="30" Height="15" FontFamily="LatoRegular" FontSize="10" ClickMode="Release" Content="Ok" Margin="0,0,0,100" av:IsLocked="True"/>
     </Grid>
