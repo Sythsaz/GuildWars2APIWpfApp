@@ -63,7 +63,7 @@
                     <Setter Property="Visibility" Value="Collapsed"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource Self}}" Value="Normal">
-                    <Setter Property="Visibility" Value="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Converter={StaticResource WindowSizeToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                    <Setter Property="Visibility" Value="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Converter={StaticResource WindowSizeToVisibilityConverterMain}, ConverterParameter=Inverse}"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
