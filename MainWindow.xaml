@@ -10,6 +10,10 @@
         mc:Ignorable="d"
         Title="GW2 API Interaction" Height="720" Width="1280" ShowInTaskbar="False" AutomationProperties.IsOffscreenBehavior="Onscreen">
 
+    <Window.Resources>
+        <local:WindowSizeToVisibilityConverter x:Key="WindowSizeToVisibilityConverter"/>
+    </Window.Resources>
+
     <Grid>
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
