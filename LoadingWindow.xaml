@@ -9,7 +9,7 @@
         <Border Background="#2C3E50" Height="20" VerticalAlignment="Top">
             <Grid>
                 <!-- Title Bar Buttons -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,5,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
                     <!-- Minimize Button -->
                     <Button x:Name="MinimizeButton" Style="{StaticResource WindowButtonStyle}" Click="MinimizeButton_Click" Margin="0,0,4,0">
                         <Path Data="M 0,6 H 10" Stroke="White" StrokeThickness="2"/>
