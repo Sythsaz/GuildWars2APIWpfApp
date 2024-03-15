@@ -39,11 +39,11 @@
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
                 <StackPanel x:Name="CompactLayout">
-                <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="10"/>
+                    <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="10"/>
                     <StackPanel Orientation="Horizontal" Visibility="Collapsed">
-                    <TextBlock Text="Wizard's Vault Item:" FontFamily="LatoRegular" FontSize="10" VerticalAlignment="Center"/>
+                        <TextBlock Text="Wizard's Vault Item:" FontFamily="LatoRegular" FontSize="10" VerticalAlignment="Center"/>
                         <TextBox x:Name="itemNumberCompact" AcceptsReturn="True" AcceptsTab="False" FontFamily="LatoRegular" FontSize="10" FontStretch="Normal" Height="15" Width="200"/>
-                </StackPanel>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="ExpandedLayout" Orientation="Horizontal" Visibility="Collapsed">
                     <TextBlock Text="Welcome" FontFamily="{StaticResource LatoThin}" FontSize="10"/>
